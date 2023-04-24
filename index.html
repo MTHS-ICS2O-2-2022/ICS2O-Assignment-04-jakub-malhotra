@@ -1,9 +1,74 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Title</title>
-  </head>
-  <body>
-    <p>Paragraph</p>
-  </body>
+<!-- ICS2O-Unit3-04_fahrenheit_to_celsius_with_JS -->
+<html lang="en-ca">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Flavour and Toppings with if statments" />
+  <meta name="keywords" content="mths, ics2o" />
+  <meta name="author" content="Jakub Malhotra" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-orange.min.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <title>Cold Stone Flavours and Toppings</title>
+</head>
+<body>
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <script src="./js/script.js"></script>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">Flavour and Toppings with if statments</span>
+      </div>
+    </header>
+    <main class="mdl-layout__content">
+      <img src="./images/thermometer.jpg" alt="an image of a thermometer" />
+      <h3>Cold Stone Flavours and Toppings</h3>
+      <h5>Enter your desired flavour and toppings</h5>
+      <br />
+      <br />
+      <!-- Simple Select with arrow -->
+      <div class="mdl-textfield mdl-js-textfield getmdl-select">
+        <input type="text" value="" class="mdl-textfield__input" id="sample2" readonly>
+        <input type="hidden" value="" name="sample2">
+        <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+        <label for="sample2" class="mdl-textfield__label">Ice Cream flavour</label>
+        <ul for="sample2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+          <li class="mdl-menu__item" data-val="DEU">Germany</li>
+          <li class="mdl-menu__item" data-val="BLR">Belarus</li>
+          <li class="mdl-menu__item" data-val="RUS">Russia</li>
+        </ul>
+      </div>
+<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+  <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked>
+  <span class="mdl-checkbox__label">Sprinkles</span>
+</label>
+<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+  <input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" checked>
+  <span class="mdl-checkbox__label">Chocolate chips</span>
+</label>
+<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-3">
+  <input type="checkbox" id="checkbox-3" class="mdl-checkbox__input" checked>
+  <span class="mdl-checkbox__label">Shredded coconut</span>
+</label>
+<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-4">
+  <input type="checkbox" id="checkbox-4" class="mdl-checkbox__input" checked>
+  <span class="mdl-checkbox__label">Oreo cookies</span>
+</label>
+      </form>
+      <!-- Raised button with ripple -->
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+        onclick="enterClicked()">
+        Calculate
+      </button>
+      <br />
+      <br />
+      <div id="celsiustemp">The temperture in celsius is: ? °C.</div>
+    </main>
+  </div>
+</body>
 </html>
