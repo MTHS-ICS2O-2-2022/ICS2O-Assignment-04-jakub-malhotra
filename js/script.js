@@ -21,40 +21,70 @@ function myButtonClicked() {
   const deliveryOnly = (basePriceNoTAX + delivery) * TAX
   const sprinklesAndDelivery = (basePriceNoTAX + sprinkles + delivery) * TAX
 
-  let subtotal = 0
-  let tax = 0
+  const subtotal = calculateSubtotal(
+    sprinklesAnswer,
+    pickUpOrDelivery,
+    basePrice,
+    sprinklesOnly,
+    deliveryOnly,
+    sprinklesAndDelivery,
+    TAX
+  )
+  const tax = calculateTax(
+    subtotal,
+    sprinklesAnswer,
+    pickUpOrDelivery,
+    basePrice,
+    sprinklesOnly,
+    deliveryOnly,
+    sprinklesAndDelivery,
+    TAX
+  )
 
+  document.getElementById("subtotal").innerHTML =
+    "Subtotal: $" + subtotal.toFixed(2)
+  document.getElementById("tax").innerHTML = "Tax: $" + tax.toFixed(2)
+  document.getElementById("total").innerHTML =
+    "Total: $" + (subtotal + tax).toFixed(2) + " including tax."
+}
+
+function calculateSubtotal(
+  sprinklesAnswer,
+  pickUpOrDelivery,
+  basePrice,
+  sprinklesOnly,
+  deliveryOnly,
+  sprinklesAndDelivery,
+  TAX
+) {
   if (sprinklesAnswer == "yes" && pickUpOrDelivery == "delivery") {
-    subtotal = sprinklesAndDelivery / TAX
-    tax = sprinklesAndDelivery - subtotal
-    document.getElementById("subtotal").innerHTML =
-      "Subtotal: $" + subtotal.toFixed(2)
-    document.getElementById("tax").innerHTML = "Tax: $" + tax.toFixed(2)
-    document.getElementById("total").innerHTML =
-      "Total: $" + sprinklesAndDelivery.toFixed(2) + " including tax."
+    return sprinklesAndDelivery / TAX
   } else if (sprinklesAnswer == "no" && pickUpOrDelivery == "delivery") {
-    subtotal = deliveryOnly / TAX
-    tax = deliveryOnly - subtotal
-    document.getElementById("subtotal").innerHTML =
-      "Subtotal: $" + subtotal.toFixed(2)
-    document.getElementById("tax").innerHTML = "Tax: $" + tax.toFixed(2)
-    document.getElementById("total").innerHTML =
-      "Total: $" + deliveryOnly.toFixed(2) + " including tax."
+    return deliveryOnly / TAX
   } else if (sprinklesAnswer == "yes" && pickUpOrDelivery == "pick") {
-    subtotal = sprinklesOnly / TAX
-    tax = sprinklesOnly - subtotal
-    document.getElementById("subtotal").innerHTML =
-      "Subtotal: $" + subtotal.toFixed(2)
-    document.getElementById("tax").innerHTML = "Tax: $" + tax.toFixed(2)
-    document.getElementById("total").innerHTML =
-      "Total: $" + sprinklesOnly.toFixed(2) + " including tax."
+    return sprinklesOnly / TAX
   } else {
-    subtotal = basePrice / TAX
-    tax = basePrice - subtotal
-    document.getElementById("subtotal").innerHTML =
-      "Subtotal: $" + subtotal.toFixed(2)
-    document.getElementById("tax").innerHTML = "Tax: $" + tax.toFixed(2)
-    document.getElementById("total").innerHTML =
-      "Total: $" + basePrice.toFixed(2) + " including tax."
+    return basePrice / TAX
+  }
+}
+
+function calculateTax(
+  subtotal,
+  sprinklesAnswer,
+  pickUpOrDelivery,
+  basePrice,
+  sprinklesOnly,
+  deliveryOnly,
+  sprinklesAndDelivery,
+  TAX
+) {
+  if (sprinklesAnswer == "yes" && pickUpOrDelivery == "delivery") {
+    return sprinklesAndDelivery - subtotal
+  } else if (sprinklesAnswer == "no" && pickUpOrDelivery == "delivery") {
+    return deliveryOnly - subtotal
+  } else if (sprinklesAnswer == "yes" && pickUpOrDelivery == "pick") {
+    return sprinklesOnly - subtotal
+  } else {
+    return basePrice - subtotal
   }
 }
