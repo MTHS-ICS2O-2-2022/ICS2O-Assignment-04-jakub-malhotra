@@ -15,19 +15,19 @@
 }
 
 .mdl-textfield__error {
-  color: coral;
+  color: plum;
 }
 
 .page-content {
-  color: coral;
+  color: plum;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 1.25rem;
+  font-size: 2rem;
 }
 
 .page-content-answer {
-  color: coral;
+  color: red;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 1.25rem;
+  font-size: 2rem;
 }
 
 .right-image {
@@ -37,11 +37,11 @@
 }
 
 body {
-  background-color: gray;
+  background-color: lightpink;
 }
 
 img {
   float: right;
   width: auto;
-  height: 500px;
+  height: 700px;
 }
